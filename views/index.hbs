@@ -1,0 +1,14 @@
+<div id="app">
+    id ${todoId}
+    <h4>Todos ${todoCount}</h4>
+    <ul>
+        <li v-for="(todo, index) in todos">
+            <span>${todo.todo} <button class="rm" @click="deleteTodo(todo.todo, index)">x</button></span>
+        </li>
+    </ul>
+    <form method="POST" @submit="newTodo">
+        <input type="text" name="todo" v-model="todo">
+        <button type="submit">Add todo</button>
+    </form>
+</div>
+
