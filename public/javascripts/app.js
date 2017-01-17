@@ -29,16 +29,12 @@ const app = new Vue({
             this.todo = ''
         },
         deleteTodo(id, index){
-        
             this.$http.delete('api/' + id).then((response) => {
                 console.log(response)
             }).catch((err) => {
                 console.log(err)
             })
-            setTimeout(function(){
-                window.location.reload();
-            }, 500);
-            this.todos.splice(index, 1)      
+            this.loadTodos()
         }
     },
     computed :{
