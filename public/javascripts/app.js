@@ -20,15 +20,15 @@ const app = new Vue({
         newTodo(e){
             e.preventDefault()
             let new_todo = {todo: this.todo, completed: false}
-            this.todos.push(new_todo)
             this.$http.post('api/', new_todo).then((response) => {
                 console.log(response)
             }).catch((err) => {
                 console.log(`new: ${err}`)
             })
+            this.loadTodos()
             this.todo = ''
         },
-        deleteTodo(id, index){
+        deleteTodo(id){
             this.$http.delete('api/' + id).then((response) => {
                 console.log(response)
             }).catch((err) => {

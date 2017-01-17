@@ -27,7 +27,7 @@ router.post('/', (req, res, next) => {
 })
 
 router.delete('/:id', (req, res, next) => {
-    db.query('delete from todos where todo=?', req.params.id, function(err, results, query){
+    db.query('delete from todos where id=?', req.params.id, function(err, results, query){
         if(err) throw err
         console.log('deleted todo')
     })
